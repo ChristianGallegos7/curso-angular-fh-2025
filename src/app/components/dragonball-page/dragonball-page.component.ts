@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { Character } from '../../interfaces/Character.interface';
+import { CharacterListComponent } from "../character-list/character-list.component";
 
 @Component({
   selector: 'app-dragonball-page',
-  imports: [],
+  imports: [CharacterListComponent],
   templateUrl: './dragonball-page.component.html',
   styleUrl: './dragonball-page.component.css',
 })
