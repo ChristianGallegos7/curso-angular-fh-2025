@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { CounterComponent } from './components/counter/counter.component';
-import { HeroPageComponentComponent } from './components/hero-page-component/hero-page-component.component';
 import { DragonballPageComponent } from './components/dragonball-page/dragonball-page.component';
+import { HeroPageComponentComponent } from './components/hero-page-component/hero-page-component.component';
 
 export const routes: Routes = [
   {
