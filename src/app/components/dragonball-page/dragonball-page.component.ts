@@ -1,16 +1,17 @@
 import { Component, signal } from '@angular/core';
 import { Character } from '../../interfaces/Character.interface';
-import { CharacterListComponent } from "../character-list/character-list.component";
+import { CharacterListComponent } from '../character-list/character-list.component';
+import { DragonballCharacterAddComponent } from '../dragonball-character-add/dragonball-character-add.component';
 
 @Component({
   selector: 'app-dragonball-page',
-  imports: [CharacterListComponent],
+  imports: [CharacterListComponent, DragonballCharacterAddComponent],
   templateUrl: './dragonball-page.component.html',
   styleUrl: './dragonball-page.component.css',
 })
 export class DragonballPageComponent {
-  name = signal('');
-  power = signal(0);
+  // name = signal('');
+  // power = signal(0);
 
   characters = signal<Character[]>([
     {
@@ -35,21 +36,21 @@ export class DragonballPageComponent {
     },
   ]);
 
-  addCharacter() {
-    if (!this.name() || !this.power() || this.power() < 0) return;
+  // addCharacter() {
+  //   if (!this.name() || !this.power() || this.power() < 0) return;
 
-    const newCharacter: Character = {
-      id: this.characters().length + 1,
-      name: this.name(),
-      power: this.power(),
-    };
+  //   const newCharacter: Character = {
+  //     id: this.characters().length + 1,
+  //     name: this.name(),
+  //     power: this.power(),
+  //   };
 
-    this.characters.update((list) => [...list, newCharacter]);
-    this.resetFields();
-  }
+  //   this.characters.update((list) => [...list, newCharacter]);
+  //   this.resetFields();
+  // }
 
-  resetFields() {
-    this.name.set('');
-    this.power.set(0);
-  }
+  // resetFields() {
+  //   this.name.set('');
+  //   this.power.set(0);
+  // }
 }
