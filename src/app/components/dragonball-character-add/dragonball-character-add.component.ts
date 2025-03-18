@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
+import { Character } from '../../interfaces/Character.interface';
 
 @Component({
   selector: 'app-dragonball-character-add',
@@ -9,19 +10,24 @@ export class DragonballCharacterAddComponent {
   name = signal('');
   power = signal(0);
 
-  // addCharacter() {
-  //   if (!this.name() || !this.power() || this.power() < 0) return;
+  newCharacter = output<Character>();
 
-  //   const newCharacter: Character = {
-  //     id: this.characters().length + 1,
-  //     name: this.name(),
-  //     power: this.power(),
-  //   };
+  addCharacter() {
+    if (!this.name() || !this.power() || this.power() < 0) return;
 
-  //   this.characters.update((list) => [...list, newCharacter]);
-  //   this.resetFields();
-  // }
-  addCharacter() {}
+    const newCharacter: Character = {
+      // id: this.characters().length + 1,
+      id: Math.floor(Math.random() * 1000),
+      name: this.name(),
+      power: this.power(),
+    };
+
+    // this.characters.update((list) => [...list, newCharacter]);
+
+    this.newCharacter.emit(newCharacter);
+    console.log({ newCharacter });
+    this.resetFields();
+  }
 
   resetFields() {
     this.name.set('');
