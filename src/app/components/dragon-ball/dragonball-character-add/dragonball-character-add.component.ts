@@ -1,5 +1,5 @@
 import { Component, output, signal } from '@angular/core';
-import { Character } from '../../interfaces/Character.interface';
+import { Character } from '../../../interfaces/Character.interface';
 
 @Component({
   selector: 'app-dragonball-character-add',
